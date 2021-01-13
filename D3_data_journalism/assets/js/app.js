@@ -84,7 +84,7 @@ function renderCircles(circlesGroup, textGroup, newXScale, chosenXAxis, newYScal
         .attr("cx", d => newXScale(d[chosenXAxis]))
         .attr("cy", d => newYScale(d[chosenYAxis]));
 
-        textGroup.transition()
+    textGroup.transition()
         .duration(1000)
         .attr("dx", d => newXScale(d[chosenXAxis]))
         .attr("dy", d => newYScale(d[chosenYAxis]));    
@@ -209,7 +209,7 @@ d3.csv("assets/data/data.csv").then(function(Pdata, err) {
         .attr("fill", "cyan")
         .attr("opacity", ".5");
 
-        var textGroup = chartGroup.selectAll("text.state")
+    var textGroup = chartGroup.selectAll("text.state")
         .data(Pdata)
         .enter()
         .append("text")
@@ -272,16 +272,6 @@ d3.csv("assets/data/data.csv").then(function(Pdata, err) {
         .attr("value", "healthcare") //value to grab for event listener
         .classed("active", true)
         .text("Lacks Healthcare (%)");
-
-    //append y axis- ex. from prior activity
-
-//   chartGroup.append("text")
-//   .attr("transform", "rotate(-90)")
-//   .attr("y", 0 - margin.left)
-//   .attr("x", 0 - (height / 2))
-//   .attr("dy", "1em")
-//   .classed("axis-text", true)
-//   .text("Number of Billboard 500 Hits");
     
     //updateToolTip function above csv import
     var circlesGroup = updateToolTipX(chosenXAxis, circlesGroup);
